@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Registries</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">coordinator_id</th>
+      <th scope="col">participant_id</th>
+      <th scope="col">name</th>
+      <th scope="col">location</th>
+      <th scope="col">state</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @registries.each do |registry| %>
+    <tr>
+      <th scope="row"><%= registry.id %></th>
+      <td><%= registry.coordinator_id %></td>
+      <td><%= registry.participant_id %></td>
+      <td><%= registry.name %></td>
+      <td><%= registry.location %></td>
+      <td><%= registry.state %></td>
+      <td><%= link_to 'Show Registry Info' ,registry_path(registry.id), class:"btn btn-danger"%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to "New registry", new_registry_path %>
